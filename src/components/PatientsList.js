@@ -15,7 +15,7 @@ const PatientsList = ({ onViewPatient, onViewPrescriptions, onDeletePatient }) =
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch('http://localhost:5000/api/patients', {
+      const response = await fetch('http://72.60.193.192:5000/api/patients', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -38,7 +38,7 @@ const PatientsList = ({ onViewPatient, onViewPrescriptions, onDeletePatient }) =
       const token = localStorage.getItem('token');
       
       try {
-        const response = await fetch(`http://localhost:5000/api/patients/${patientId}`, {
+        const response = await fetch(`http://72.60.193.192:5000/api/patients/${patientId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`
