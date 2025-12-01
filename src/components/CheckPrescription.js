@@ -14,7 +14,7 @@ const CheckPrescription = ({ onPrescriptionFound }) => {
     const token = localStorage.getItem('token');
 
     try {
-      const patientResponse = await fetch(`http://localhost:5000/api/patients/slip/${slipNumber}`, {
+      const patientResponse = await fetch(`http://72.60.193.192:5000/api/patients/slip/${slipNumber}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -28,7 +28,7 @@ const CheckPrescription = ({ onPrescriptionFound }) => {
         return;
       }
 
-      const prescriptionResponse = await fetch(`http://localhost:5000/api/prescriptions/slip/${slipNumber}`, {
+      const prescriptionResponse = await fetch(`http://72.60.193.192:5000/api/prescriptions/slip/${slipNumber}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
