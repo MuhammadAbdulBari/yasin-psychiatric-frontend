@@ -35,7 +35,7 @@ const PrescriptionForm = ({ patient, onPrescriptionSaved }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/prescriptions', {
+      const response = await fetch('http://72.60.193.192:5000/api/prescriptions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
