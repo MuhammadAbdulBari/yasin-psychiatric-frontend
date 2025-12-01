@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.slip-print-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.slip-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.slip-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4a5568, #2d3748, #1a202c);
+}
+
+.card-header {
+  padding: 30px 40px 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.header-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4a5568, transparent);
+}
+
+.title-section {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.025em;
+}
+
+.card-subtitle {
+  color: #718096;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.hospital-info-section {
+  padding: 20px 40px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.hospital-details {
+  text-align: center;
+}
+
+.hospital-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+}
+
+.hospital-address {
+  font-size: 14px;
+  color: #718096;
+  margin: 0 0 4px 0;
+  font-weight: 400;
+}
+
+.hospital-contact {
+  font-size: 13px;
+  color: #718096;
+  margin: 0;
+  font-weight: 400;
+}
+
+.slip-content {
+  padding: 30px 40px;
+}
+
+.slip-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.slip-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.slip-field:hover {
+  border-color: rgba(74, 85, 104, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.field-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2d3748;
+  line-height: 1.4;
+}
+
+.slip-number {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  letter-spacing: 0.5px;
+  color: #1e40af !important;
+  background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px dashed #cbd5e1;
+  text-align: center;
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border-radius: 2px;
+}
+
+.patient-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+  border-color: rgba(74, 85, 104, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.detail-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detail-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2d3748;
+  line-height: 1.4;
+}
+
+.patient-name {
+  color: #1e40af !important;
+  font-size: 16px !important;
+}
+
+.age-value {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  color: #059669 !important;
+}
+
+.instructions-section {
+  padding: 0 40px 30px;
+}
+
+.instructions-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.instructions-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.instructions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.instruction-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(254, 243, 199, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.instruction-item:hover {
+  background: rgba(254, 243, 199, 0.5);
+  transform: translateX(4px);
+}
+
+.instruction-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #d97706;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.instruction-text {
+  color: #92400e;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.security-features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 40px;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.security-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #718096;
+  font-weight: 500;
+}
+
+.security-badge svg {
+  color: #4a5568;
+}
+
+.slip-actions {
+  padding: 30px 40px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.print-button,
+.view-prescription-button,
+.new-registration-button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.print-button {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.print-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.print-button:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.print-button:hover::before {
+  left: 100%;
+}
+
+.view-prescription-button {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(74, 85, 104, 0.3);
+}
+
+.view-prescription-button:hover {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(74, 85, 104, 0.4);
+}
+
+.new-registration-button {
+  background: rgba(255, 255, 255, 0.8);
+  color: #4a5568;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-registration-button:hover {
+  background: white;
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.print-icon {
+  transition: transform 0.3s ease;
+}
+
+.print-button:hover .print-icon {
+  transform: scale(1.1);
+}
+
+/* Print Styles */
+@media print {
+  .slip-print-container {
+    background: white !important;
+    padding: 0 !important;
+  }
+  
+  .slip-card {
+    box-shadow: none !important;
+    border: 2px solid #1e3a5f !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+  
+  .slip-actions {
+    display: none !important;
+  }
+  
+  .security-features {
+    display: none !important;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slip-print-container {
+    padding: 20px 16px;
+  }
+  
+  .slip-card {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+  
+  .card-header {
+    padding: 25px 24px 15px;
+  }
+  
+  .hospital-info-section {
+    padding: 16px 24px;
+  }
+  
+  .slip-content {
+    padding: 24px;
+  }
+  
+  .slip-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .patient-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .instructions-section {
+    padding: 0 24px 24px;
+  }
+  
+  .security-features {
+    padding: 16px 24px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .slip-actions {
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .print-button,
+  .view-prescription-button,
+  .new-registration-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slip-print-container {
+    padding: 16px 12px;
+  }
+  
+  .slip-card {
+    border-radius: 16px;
+  }
+  
+  .card-header {
+    padding: 20px 20px 12px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+  }
+  
+  .hospital-info-section {
+    padding: 12px 20px;
+  }
+  
+  .slip-content {
+    padding: 20px;
+  }
+  
+  .instructions-section {
+    padding: 0 20px 20px;
+  }
+  
+  .instructions-card {
+    padding: 20px;
+  }
+  
+  .security-features {
+    padding: 12px 20px;
+  }
+  
+  .slip-actions {
+    padding: 20px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .slip-card {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .slip-field,
+  .detail-item,
+  .instructions-card {
+    border: 1px solid #000000;
+  }
+  
+  .print-button,
+  .view-prescription-button {
+    background: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .slip-card,
+  .slip-field,
+  .detail-item,
+  .instruction-item,
+  .print-button,
+  .view-prescription-button,
+  .new-registration-button {
+    transition: none;
+  }
+  
+  .print-button::before {
+    display: none;
+  }
+}
+
+/* Animation for card entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slip-card {
+  animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}

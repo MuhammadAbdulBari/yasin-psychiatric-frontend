@@ -1,0 +1,665 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.prescription-form-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.prescription-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.prescription-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4a5568, #2d3748, #1a202c);
+}
+
+.card-header {
+  padding: 40px 40px 0;
+  position: relative;
+}
+
+.header-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4a5568, transparent);
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.025em;
+}
+
+.card-subtitle {
+  color: #718096;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.patient-info-section {
+  padding: 30px 40px 20px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border-radius: 2px;
+}
+
+.patient-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detail-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2d3748;
+  line-height: 1.4;
+}
+
+.error-state {
+  background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+  border: 1px solid #fc8181;
+  color: #c53030;
+  padding: 16px 20px;
+  margin: 0 40px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(245, 101, 101, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-icon {
+  flex-shrink: 0;
+  color: #c53030;
+}
+
+.error-message {
+  line-height: 1.4;
+}
+
+.prescription-form {
+  padding: 0 40px 40px;
+}
+
+.medicines-section {
+  margin-bottom: 30px;
+}
+
+.add-medicine-button {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-medicine-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.add-medicine-button:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.add-medicine-button:hover::before {
+  left: 100%;
+}
+
+.add-icon {
+  transition: transform 0.3s ease;
+}
+
+.add-medicine-button:hover .add-icon {
+  transform: scale(1.1);
+}
+
+.medicines-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.medicine-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.medicine-card:hover {
+  border-color: rgba(74, 85, 104, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.medicine-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border-radius: 3px 0 0 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.medicine-card:hover::before {
+  opacity: 1;
+}
+
+.medicine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.medicine-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.remove-medicine-button {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.remove-medicine-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.remove-medicine-button:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: scale(1.1);
+}
+
+.remove-medicine-button:hover::before {
+  left: 100%;
+}
+
+.medicine-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.field-input {
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2d3748;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: #4a5568;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.1);
+}
+
+.field-input::placeholder {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
+.notes-section {
+  margin-bottom: 30px;
+}
+
+.notes-textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2d3748;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.notes-textarea:focus {
+  outline: none;
+  border-color: #4a5568;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.1);
+}
+
+.notes-textarea::placeholder {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.025em;
+  min-width: 200px;
+}
+
+.submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(26, 32, 44, 0.25),
+    0 4px 15px rgba(26, 32, 44, 0.2);
+}
+
+.submit-button:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-button:disabled::before {
+  display: none;
+}
+
+.loading-state {
+  pointer-events: none;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.button-text {
+  font-weight: 600;
+}
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Card entrance animation */
+.prescription-card {
+  animation: cardEntrance 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Medicine card animations */
+.medicine-card {
+  animation: medicineEntrance 0.5s ease-out forwards;
+}
+
+@keyframes medicineEntrance {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prescription-form-container {
+    padding: 20px 16px;
+  }
+  
+  .prescription-card {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+  
+  .card-header {
+    padding: 30px 24px 0;
+  }
+  
+  .card-title {
+    font-size: 24px;
+  }
+  
+  .card-subtitle {
+    font-size: 14px;
+  }
+  
+  .patient-info-section {
+    padding: 24px 24px 16px;
+  }
+  
+  .prescription-form {
+    padding: 0 24px 30px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .add-medicine-button {
+    align-self: flex-start;
+  }
+  
+  .medicine-fields {
+    grid-template-columns: 1fr;
+  }
+  
+  .patient-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .error-state {
+    margin: 0 24px 16px;
+    padding: 14px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .prescription-form-container {
+    padding: 16px 12px;
+  }
+  
+  .prescription-card {
+    border-radius: 16px;
+  }
+  
+  .card-header {
+    padding: 24px 20px 0;
+  }
+  
+  .card-title {
+    font-size: 22px;
+  }
+  
+  .patient-info-section {
+    padding: 20px 20px 12px;
+  }
+  
+  .prescription-form {
+    padding: 0 20px 24px;
+  }
+  
+  .medicine-card {
+    padding: 16px;
+  }
+  
+  .field-input,
+  .notes-textarea {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .submit-button {
+    padding: 14px 24px;
+    font-size: 15px;
+    min-width: 180px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .prescription-card {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .field-input,
+  .notes-textarea {
+    border: 2px solid #000000;
+    background: #ffffff;
+  }
+  
+  .submit-button,
+  .add-medicine-button,
+  .remove-medicine-button {
+    background: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .prescription-card,
+  .medicine-card,
+  .error-state,
+  .submit-button,
+  .add-medicine-button,
+  .remove-medicine-button {
+    animation: none;
+    transition: none;
+  }
+  
+  .loading-spinner {
+    animation: none;
+  }
+  
+  .submit-button::before,
+  .add-medicine-button::before,
+  .remove-medicine-button::before {
+    display: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.field-input:focus-visible,
+.notes-textarea:focus-visible {
+  outline: 2px solid #4a5568;
+  outline-offset: 2px;
+}
+
+.submit-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
