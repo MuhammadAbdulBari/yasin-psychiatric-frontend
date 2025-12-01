@@ -111,7 +111,7 @@ const Pharmacy = () => {
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch(`http://localhost:5000/api/pharmacy/prescriptions/${prescriptionId}/status`, {
+      const response = await fetch(`http://72.60.193.192:5000/api/pharmacy/prescriptions/${prescriptionId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ const Pharmacy = () => {
   const handleViewPrescription = (prescription) => {
     const token = localStorage.getItem('token');
     
-    fetch(`http://localhost:5000/api/patients/slip/${prescription.slip_number}`, {
+    fetch(`http://72.60.193.192:5000/api/patients/slip/${prescription.slip_number}`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
