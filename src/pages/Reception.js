@@ -27,7 +27,7 @@ const Reception = () => {
     setLoading(true);
     
     try {
-      const response = await fetch('http://localhost:5000/api/prescriptions', {
+      const response = await fetch('http://72.60.193.192:5000/api/prescriptions', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -58,7 +58,7 @@ const Reception = () => {
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch(`http://localhost:5000/api/prescriptions/slip/${slipNumber}`, {
+      const response = await fetch(`http://72.60.193.192:5000/api/prescriptions/slip/${slipNumber}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -67,7 +67,7 @@ const Reception = () => {
       if (response.ok) {
         const prescription = await response.json();
         
-        const patientResponse = await fetch(`http://localhost:5000/api/patients/slip/${slipNumber}`, {
+        const patientResponse = await fetch(`http://72.60.193.192:5000/api/patients/slip/${slipNumber}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -102,7 +102,7 @@ const Reception = () => {
   const handleViewPrescriptionFromList = (prescription) => {
     const token = localStorage.getItem('token');
     
-    fetch(`http://localhost:5000/api/patients/slip/${prescription.slip_number}`, {
+    fetch(`http://72.60.193.192:5000/api/patients/slip/${prescription.slip_number}`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
