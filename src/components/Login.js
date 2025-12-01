@@ -11,13 +11,15 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
     try {
-      const response = await fetch('http://72.60.193.192:5000/api/login', {
+      const response = await fetch(`${BACKEND_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -27,20 +29,28 @@ const Login = () => {
 
       if (response.ok) {
         login(data.user, data.token);
-        // Redirect based on role
-        if (data.user.role === 'reception') {
-          navigate('/reception');
-        } else if (data.user.role === 'doctor') {
-          navigate('/doctor');
-        } else if (data.user.role === 'pharmacy') { // Add this condition
-          navigate('/pharmacy');
+
+        // Redirect based on role dynamically
+        switch (data.user.role) {
+          case 'reception':
+            navigate('/reception');
+            break;
+          case 'doctor':
+            navigate('/doctor');
+            break;
+          case 'pharmacy':
+            navigate('/pharmacy');
+            break;
+          default:
+            navigate('/'); // fallback
         }
       } else {
-        setError(data.error);
+        setError(data.error || 'Login failed. Check your credentials.');
       }
     } catch (err) {
-      setError('Failed to connect to server');
+      setError('Failed to connect to server. Please try again.');
     }
+
     setLoading(false);
   };
 
@@ -51,9 +61,9 @@ const Login = () => {
           <h2>Hospital POS System</h2>
           <p>Please sign in to continue</p>
         </div>
-        
+
         {error && <div className="error-message">{error}</div>}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Email Address</label>
@@ -65,7 +75,7 @@ const Login = () => {
               placeholder="Enter your email"
             />
           </div>
-          
+
           <div className="form-group">
             <label>Password</label>
             <input
@@ -76,17 +86,17 @@ const Login = () => {
               placeholder="Enter your password"
             />
           </div>
-          
+
           <button type="submit" disabled={loading} className="login-btn">
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-        
+
         <div className="demo-accounts">
           <h4>Demo Accounts:</h4>
           <p>Reception: reception@hospital.com / password</p>
           <p>Doctor: doctor@hospital.com / password</p>
-          <p>Pharmacy: pharmacy@hospital.com / password</p> {/* Add this line */}
+          <p>Pharmacy: pharmacy@hospital.com / password</p>
         </div>
       </div>
     </div>
