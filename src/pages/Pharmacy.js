@@ -20,7 +20,7 @@ const Pharmacy = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch('http://localhost:5000/api/prescriptions', {
+      const response = await fetch('http://72.60.193.192:5000/api/prescriptions', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -64,7 +64,7 @@ const Pharmacy = () => {
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch(`http://localhost:5000/api/prescriptions/slip/${searchSlipNumber.trim()}`, {
+      const response = await fetch(`http://72.60.193.192:5000/api/prescriptions/slip/${searchSlipNumber.trim()}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -83,7 +83,7 @@ const Pharmacy = () => {
           }
         }
         
-        const patientResponse = await fetch(`http://localhost:5000/api/patients/slip/${searchSlipNumber.trim()}`, {
+        const patientResponse = await fetch(`http://72.60.193.192:5000/api/patients/slip/${searchSlipNumber.trim()}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
