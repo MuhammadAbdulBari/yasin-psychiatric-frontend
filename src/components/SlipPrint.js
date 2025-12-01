@@ -10,7 +10,7 @@ const SlipPrint = ({ slipData, onNewRegistration, onViewPrescription }) => {
     const fetchPatientDetails = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await fetch(`http://localhost:5000/api/patients/${slipData.patientId}`, {
+        const response = await fetch(`http://72.60.193.192:5000/api/patients/${slipData.patientId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
